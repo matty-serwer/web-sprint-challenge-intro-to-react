@@ -36,7 +36,8 @@ const App = () => {
   const Morty = (props) => (
     <div className='morty'>
       {props.info.name}
-      <button onClick={() => openDetails(props.info.id)}>Character Info</button>
+      <button onClick={() => (
+        props.info.id === currentMortyId ? closeDetails() : openDetails(props.info.id))}>Character Info</button>
     </div>
   );
 

@@ -23,6 +23,7 @@ export default function Character(props) {
       <h2>{charInfo.name}</h2>
       <img src={charInfo.image} alt='charInfo.name' />
       <p>species: {charInfo.species}</p>
+      <p>status: {charInfo.status}</p>
     </div>
   );
 }
