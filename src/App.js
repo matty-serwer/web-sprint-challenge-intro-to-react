@@ -5,15 +5,14 @@ import Character from "./components/Character";
 import styled from "styled-components";
 
 const StyledApp = styled.div`
-  font-family: sans-serif;
-  font-size: 1.5rem;
-
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1rem;
   margin: auto;
 `;
 
 const StyledContainer = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin: auto;
 `
 
@@ -21,9 +20,9 @@ const StyledMortyList = styled.div`
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  margin: 4rem 5rem 0 5%;
+  margin: 4rem 2rem 0 5%;
   color: ${pr => pr.theme.secondaryColor};
-  background-color: ${pr => pr.theme.dangerColor};
+  background-color: ${pr => pr.theme.backgroundColor};
   padding: 20px;
   border-radius: 10px;
 `
@@ -35,7 +34,17 @@ const StyledMortyName = styled.div`
   button {
     background-color: ${pr => pr.theme.dangerColor};
     border: 2px solid ${pr => pr.theme.secondaryColor};
+    border-radius: 5px;
     color: ${pr => pr.theme.secondaryColor};
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.0rem;
+    width: 60px;
+    &:hover {
+      background-color: ${pr => pr.theme.tertiaryColor};
+      border: 2px solid ${pr => pr.theme.tertiaryColor};
+      color: ${pr => pr.theme.dangerColor};
+      transition: all .3s ease-in-out;
+    }
   }
 `
 
@@ -64,7 +73,7 @@ const App = () => {
 
   const Morty = (props) => (
     <StyledMortyName className='morty'>
-      {props.info.name}
+      {props.info.name} &nbsp;
       <button
         onClick={() =>
           props.info.id === currentMortyId
@@ -72,7 +81,9 @@ const App = () => {
             : openDetails(props.info.id)
         }
       >
-        Character Info
+        {props.info.id === currentMortyId
+        ? '-'
+        : '+'}
       </button>
     </StyledMortyName>
   );

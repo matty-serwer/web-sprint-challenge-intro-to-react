@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledInfo = styled.div`
-    
-`
+  color: ${(pr) => pr.theme.secondaryColor};
+  background-color: ${(pr) => pr.theme.backgroundColor};
+  padding: 0 3rem;
+  border-radius: 10px;
+  line-height: 1;
+  font-size: 1.3rem;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+`;
 
+const StyledList = styled.div`
+  margin-top: 1rem;
+`;
 
 export default function Character(props) {
   const { mortyId, mortys } = props;
@@ -21,15 +33,17 @@ export default function Character(props) {
     );
   });
 
-//   console.log(charInfo);
   // setCharInfo(mortys[mortyId]);
   // console.log (charInfo)
   return (
     <StyledInfo className='mortyInfo'>
       <h2>{charInfo.name}</h2>
       <img src={charInfo.image} alt='charInfo.name' />
-      <p>species: {charInfo.species}</p>
-      <p>status: {charInfo.status}</p>
+      <StyledList>
+        <p>species: {charInfo.species}</p>
+        <p>status: {charInfo.status}</p>
+        <p>location: {charInfo.location && charInfo.location.name}</p>
+      </StyledList>
     </StyledInfo>
   );
 }
