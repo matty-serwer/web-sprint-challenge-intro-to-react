@@ -22,10 +22,11 @@ const App = () => {
       });
   }, []);
 
-  console.log(mortys);
+  // console.log(mortys);
 
   const openDetails = (id) => {
     setCurrentMortyId(id);
+    // console.log(currentMortyId)
   };
 
   const closeDetails = () => {
@@ -46,7 +47,7 @@ const App = () => {
         return <Morty key={mt.id} info={mt} />;
       })}
       {
-        currentMortyId && <Character mortyId={currentMortyId} />
+        currentMortyId && <Character mortyId={currentMortyId} mortys={mortys} />
       }
     </div>
   );
