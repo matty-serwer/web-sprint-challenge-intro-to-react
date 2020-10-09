@@ -6,8 +6,12 @@ import styled from "styled-components";
 
 const StyledApp = styled.div`
   font-family: 'Press Start 2P', sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: auto;
+  h1{
+    font-size: 4rem;
+    color: black;
+  }
 `;
 
 const StyledContainer = styled.div`
@@ -38,7 +42,8 @@ const StyledMortyName = styled.div`
     color: ${pr => pr.theme.secondaryColor};
     font-family: 'Press Start 2P', sans-serif;
     font-size: 1.0rem;
-    width: 60px;
+    width: 2.2rem;
+    height: 2.2rem;
     &:hover {
       background-color: ${pr => pr.theme.tertiaryColor};
       border: 2px solid ${pr => pr.theme.tertiaryColor};
@@ -90,7 +95,8 @@ const App = () => {
 
   return (
     <StyledApp className='App'>
-      <h1 className='Header'>Dead Morty's (Documented)</h1>
+      <h1 className='Header'>Dead Morty's</h1>
+      <h2>(Documented)</h2>
       <StyledContainer className='container'>
         <StyledMortyList className='mortyList'>
           {mortys.map((mt) => {

@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const kf = keyframes`
+100% {opacity: 1;}
+`
 
 const StyledInfo = styled.div`
+opacity: 0;
+animation: ${kf} 0.5s ease-in forwards;
   color: ${(pr) => pr.theme.secondaryColor};
   background-color: ${(pr) => pr.theme.backgroundColor};
   padding: 0 3rem;
   border-radius: 10px;
   line-height: 1;
   font-size: 1.3rem;
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
   display: flex;
   flex-direction: column;
   max-width: 20rem;
